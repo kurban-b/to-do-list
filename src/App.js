@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header/Header"
+import Main from "./Main/Main";
+import Footer from "./Footer/Footer";
+import {useState} from "react";
 
 function App() {
+
+    const [test, setTest] = useState([
+        // {name: 'Купить машину', favorites: false, selected: false},
+        // {name: 'Прочитать книгу', favorites: false, selected: false},
+        // {name: 'Сходить в магазин', favorites: false, selected: false}
+    ])
+    console.log(test)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='main-wrap'>
+          <Header />
+          <Main todosArray = {test} setArray = {setTest}/>
+          <Footer todosArray = {test} setArray = {setTest}/>
+      </div>
   );
 }
 
