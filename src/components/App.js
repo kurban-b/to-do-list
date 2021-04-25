@@ -1,11 +1,10 @@
 import Todos from "./todos";
+import Header from "./header";
 
 function App() {
-
-
   return (
       <div className='main-wrap'>
-          <h1 className='main-title'>Todo-list</h1>
+          <Header />
           <Todos />
       </div>
   );
