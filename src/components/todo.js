@@ -9,7 +9,7 @@ function Todo(props) {
             <div className="title">
                 {props.todo.title}
             </div>
-            <BtnDelete />
+            <BtnDelete todo = {props.todo}/>
         </div>
     )
 }

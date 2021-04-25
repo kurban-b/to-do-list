@@ -1,14 +1,14 @@
 export function loadingData(){
     return function (dispatcher) {
         dispatcher({
-            type: 'loading-start'
+            type: 'todos/loading/start'
         })
 
         fetch('https://jsonplaceholder.typicode.com/todos')
             .then(responce => responce.json())
             .then((json) => {
                 dispatcher({
-                    type: 'dataTodos',
+                    type: 'todos/todo/get-todos',
                     payload: json
                 })
             })
@@ -17,13 +17,18 @@ export function loadingData(){
 
 export function deleteTodo (id) {
     return function (dispatcher) {
+        dispatcher({
+            type: 'todo/btn-delete/disabled',
+            payload: id
+        })
+
         fetch(`https://jsonplaceholder.typicode.com/todos/${id}`,{
             method: 'DELETE'
         })
             .then(responce => responce.json())
             .then(()=>{
                 dispatcher({
-                    type: 'delete',
+                    type: 'todo/btn-delete/delete',
                     payload: id
                 })
             })
@@ -32,6 +37,12 @@ export function deleteTodo (id) {
 
 export function changeComplited (id, completed) {
     return function (dispatcher) {
+        dispatcher({
+            type: 'todo/checkbox/loader',
+            payload: id
+        })
+
+
         fetch(`https://jsonplaceholder.typicode.com/todos/${id}`,{
             method: 'PATCH',
             body: JSON.stringify({
@@ -44,7 +55,7 @@ export function changeComplited (id, completed) {
             .then(responce => responce.json())
             .then(()=>{
                 dispatcher({
-                    type: 'changeCheckbox',
+                    type: 'todo/checkbox/change',
                     payload: id
                 })
             })

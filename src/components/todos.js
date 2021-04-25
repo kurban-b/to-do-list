@@ -15,7 +15,7 @@ function Todos() {
 
     return (
         <div className='todos'>
-            {loading ? <Loader /> : todos.map( todo => <Todo todo={todo} /> )}
+            {loading ? <Loader /> : todos.map( todo => <Todo todo={todo}/> )}
         </div>
     );
 }

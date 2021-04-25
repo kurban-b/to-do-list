@@ -31,18 +31,27 @@ body {
 }
 .check {
   padding: 0 10px;
+  width: 40px;
 }
 
 .delete {
   padding: 0 10px;
 }
 .delete button {
-  padding: 3px 7px;
+  width: 50px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #e53535;
   color: white;
   border: none;
   cursor: pointer;
   outline: none;
+  border-radius: 5px;
+}
+.delete button[disabled] {
+  background-color: #990000;
 }
 .check input {
   display: none;
