@@ -61,3 +61,20 @@ export function changeComplited (id, completed) {
             })
     }
 }
+
+export function loadingUsers () {
+    return function (dispatcher) {
+        dispatcher({
+            type: 'users/loading/start'
+        })
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => {
+                dispatcher({
+                    type: 'users/load/getUsers',
+                    payload: json
+                })
+            })
+
+    }
+}
